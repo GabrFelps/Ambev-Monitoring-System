@@ -46,4 +46,4 @@ E após conectar a ESP32 no computador
 2. Selecione a porta onde a ESP32 foi reconhecida (ex: COM7).
 3. Pode não ser o mesmo para o seu computador
 
-![Preferences](../img/image4.png)
+![Porta](../img/image4.png)

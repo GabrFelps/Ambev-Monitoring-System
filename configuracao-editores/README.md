@@ -14,10 +14,10 @@ Baixe e instale a versão mais recente do Arduino IDE 2.x pelo site oficial
 `
 
 ## Passo 1
-![Preferences](img/passo1.png)
+![Preferences](../img/passo1.png)
 
 ## Passo 2
-![Preferences](img/passo2.png)
+![Preferences](../img/passo2.png)
 
 Certifique-se de deixar marcada a opção Editor Quick Suggestions.
 
@@ -25,10 +25,11 @@ Certifique-se de deixar marcada a opção Editor Quick Suggestions.
 
 1. Vá em Tools → Board → Board Manager...
 2. Pesquise por esp32 e instale o pacote da Espressif Systems.
+## Passo 1
+![Preferences](../img/image.png)
 
-![Preferences](img/image.png)
-
-![Preferences](img/image2.png)
+## Passo2
+![Preferences](../img/image2.png)
 
 E após conectar a ESP32 no computador
 
@@ -37,7 +38,7 @@ E após conectar a ESP32 no computador
 1. Vá em Tools → Board → esp32
 2. Escolha ESP32 Dev Module (recomendado para ESP32-WROOM-32 DevKit V1).
 
-![Preferences](img/image3.png)
+![Preferences](../img/image3.png)
 
 # Selecionar a porta
 
@@ -45,4 +46,4 @@ E após conectar a ESP32 no computador
 2. Selecione a porta onde a ESP32 foi reconhecida (ex: COM7).
 3. Pode não ser o mesmo para o seu computador
 
-![Preferences](img/image4.png)
+![Preferences](../img/image4.png)

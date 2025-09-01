@@ -7,8 +7,6 @@ Descrição:
 
 Este projeto tem como objetivo solucionar um problema relacionado ao enchimento de um tanque em uma empresa do setor de bebidas. A proposta do protótipo consiste na utilização de duas válvulas: uma válvula superior, responsável por permitir a entrada do líquido quando o recipiente está vazio, e uma válvula inferior, que é acionada logo após o fechamento da superior para liberar o líquido. O processo se repete de forma cíclica, permitindo que a válvula superior seja novamente aberta quando o nível do reservatório atinge um ponto baixo, garantindo o enchimento contínuo e eficiente do sistema.
 
-![ChatGPT Image 26 de ago. de 2025, 14_50_40.png](attachment:ad9f746c-77f9-4e86-a99d-2a3ce95acc29:ChatGPT_Image_26_de_ago._de_2025_14_50_40.png)
-
 ### Componentes ultilizados
 
 ## Componentes Utilizados

@@ -1,0 +1,125 @@
+/* Layout básico */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  background: #f5f9ff;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header {
+  background: #004d99;
+  color: white;
+  width: 100%;
+  text-align: center;
+  padding: 15px;
+}
+
+h1 {
+  margin: 0;
+}
+
+.system-container {
+  max-width: 900px;
+  margin-top: 20px;
+  padding: 20px;
+}
+
+/* Tanques */
+.tanks {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 40px;
+}
+
+.tank-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tank {
+  width: 120px;
+  height: 200px;
+  border: 3px solid #34495e;
+  border-radius: 10px;
+  background: #ecf0f1;
+  position: relative;
+  overflow: hidden;
+}
+
+.liquid {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: linear-gradient(to top, #3498db, #5dade2);
+  transition: height 0.5s ease-in-out;
+}
+
+.label {
+  margin-top: 8px;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+/* Válvulas */
+.valve-line {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.valve-icon {
+  font-size: 28px;
+  color: #e74c3c; /* fechado */
+  margin: 5px;
+}
+
+.valve-icon.open {
+  color: #2ecc71; /* aberto */
+}
+
+/* Controles */
+.controls {
+  margin-top: 30px;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+button {
+  padding: 10px 20px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  background: #3498db;
+  color: white;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #2980b9;
+}
+
+button.danger {
+  background: #e74c3c;
+}
+
+button.danger:hover {
+  background: #c0392b;
+}
+
+/* Status */
+.status {
+  margin-top: 30px;
+  padding: 15px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 1.1em;
+  background: #dfe6e9;
+}

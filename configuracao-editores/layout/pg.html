@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RefriCorp - Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  
+  <div class="wrapper">
+    <button class="menu-toggle" id="menuToggle">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <div class="sidebar" id="sidebar">
+      <div class="user-info">
+        <img src="https://i.pinimg.com/564x/6e/ac/81/6eac81cce9e312cb3265324e553d2b45.jpg" alt="Usuário" />
+        <div>
+          <p class="user-name">Junior Borges</p>
+          <p class="user-role">Supervisor</p>
+        </div>
+      </div>
+
+      <h3 class="menu-title">Navegação</h3>
+      <ul>
+        <li><a href="../Simulação/simu.html"><i class="fas fa-home"></i> Simulação</a></li>
+        <li><a href="dashboard.html" class="active"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+        <li><a href="relatorios.html"><i class="fas fa-chart-bar"></i> Relatórios</a></li>
+        <li><a href="config.html"><i class="fas fa-cog"></i> Configurações</a></li>
+      </ul>
+
+      <h3 class="menu-title">Outros</h3>
+      <ul>
+        <li><a href="#"><i class="fas fa-bell"></i> Notificações</a></li>
+        <li><a href="#"><i class="fas fa-life-ring"></i> Suporte</a></li>
+      </ul>
+
+      <div class="logout">
+        <a href="../index.html"><i class="fas fa-sign-out-alt"></i> Sair</a>
+      </div>
+    </div>
+
+    <div class="main-content" id="mainContent">
+      <header>
+        <h1>Dashboard Industrial</h1>
+        <p>Monitoramento em tempo real da produção</p>
+      </header>
+
+      <section class="cards-summary">
+        <div class="card card-green">
+          <h3><i class="fas fa-bottle-water"></i> Produção</h3>
+          <p class="big" id="totalProduction">0 <span>garrafas/min</span></p>
+        </div>
+        <div class="card card-blue">
+          <h3><i class="fas fa-temperature-high"></i> Temperatura</h3>
+          <p class="big" id="averageTemperature">-- °C</p>
+        </div>
+        <div class="card card-purple">
+          <h3><i class="fas fa-percentage"></i> Eficiência</h3>
+          <p class="big" id="averageEfficiency">--%</p>
+        </div>
+      </section>
+
+      <section class="production-lines-section">
+        <div class="section-header">
+          <h2>Linhas de Produção</h2>
+          <button class="add-button" id="addButton">
+            <i class="fas fa-plus"></i> Adicionar
+          </button>
+        </div>
+        <div class="production-lines-grid" id="productionLinesContainer"></div>
+      </section>
+
+      <footer>
+        <p>RefriCorp © 2024 - Automação Industrial | Versão 2.1.0</p>
+      </footer>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

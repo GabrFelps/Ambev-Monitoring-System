@@ -1,0 +1,292 @@
+/* Reset básico */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f1f5f9;
+  overflow-x: hidden; /* Evita rolagem horizontal em mobile */
+}
+
+/* Layout do Wrapper */
+.wrapper {
+  display: flex;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 240px;
+  min-height: 100vh;
+  background: #1e293b;
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #334155;
+  margin: 0 10px;
+}
+
+.user-info img {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+
+.user-name {
+  font-weight: bold;
+}
+
+.user-role {
+  font-size: 12px;
+  color: #cbd5e1;
+}
+
+.menu-title {
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #94a3b8;
+  margin: 20px 10px 10px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0 10px;
+}
+
+.sidebar ul li {
+  margin: 8px 0;
+}
+
+.sidebar ul li a {
+  color: #cbd5e1;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.sidebar ul li a i {
+  margin-right: 12px;
+  font-size: 18px;
+  width: 24px;
+  text-align: center;
+}
+
+.sidebar ul li a:hover,
+.sidebar ul li a.active {
+  background: #334155;
+  color: #fff;
+}
+
+.logout {
+  margin: 20px 10px;
+}
+
+.logout a {
+  color: #f87171;
+  text-decoration: none;
+  display: block;
+  padding: 12px;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.logout a:hover {
+  background: #b91c1c;
+  color: #fff;
+}
+
+/* Conteúdo principal */
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 28px;
+  color: #1e293b;
+}
+
+header p {
+  color: #64748b;
+  margin-bottom: 20px;
+}
+
+/* Cards de Resumo */
+.cards-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+/*muda a cor de branco para outra */
+.card {
+  padding: 20px;
+  border-radius: 12px;
+  color: #25396c;
+  text-align: center; /* Centraliza o texto nos cards */
+}
+
+.card h3 {
+  font-size: 16px;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.card p.big {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+/* Seção de Linhas de Produção */
+.production-lines-section {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  margin-bottom: 30px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.section-header h2 {
+  margin: 0;
+}
+
+.add-button {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.add-button:hover {
+  background: #1d4ed8;
+}
+
+.add-button i {
+  margin-right: 8px;
+}
+
+
+.production-lines-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.line-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.line-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.line-header h3 {
+  margin: 0;
+  font-size: 20px;
+  color: #1e293b;
+}
+
+.line-card p {
+  margin: 8px 0;
+  color: #475569;
+}
+
+.status {
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.status.running { background: #16a34a; }
+.status.maintenance { background: #facc15; color: #000; }
+.status.stopped { background: #ef4444; }
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 15px;
+  color: #64748b;
+  font-size: 14px;
+}
+
+/* Botão de menu para mobile */
+.menu-toggle {
+  display: none;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1100;
+  background: #1e293b;
+  color: white;
+  border: none;
+  padding: 12px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    transform: translateX(-100%);
+  }
+
+  .sidebar.active {
+    transform: translateX(0);
+  }
+
+  .main-content {
+    margin-left: 0;
+    padding-top: 60px; /* Espaço para o botão de menu */
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+
+@media (min-width: 769px) {
+  .sidebar {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+  }
+  .main-content {
+    margin-left: 0;
+  }
+}

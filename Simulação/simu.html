@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Enchimento de Tanques</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <header>
+    <h1>💧 Protótipo de Enchimento de Tanques</h1>
+  </header>
+
+  <main class="system-container">
+    <!-- Tanques -->
+    <section class="tanks">
+      <div class="tank-card">
+        <div class="tank" id="tank1">
+          <div class="liquid" id="liquid1"></div>
+        </div>
+        <p class="label">Tanque de Abastecimento</p>
+      </div>
+
+      <div class="valve-line">
+        <i data-lucide="droplet" class="valve-icon" id="icon-valve1"></i>
+        <p>Válvula 1</p>
+      </div>
+
+      <div class="tank-card">
+        <div class="tank" id="tank2">
+          <div class="liquid" id="liquid2"></div>
+        </div>
+        <p class="label">Tanque Intermediário</p>
+      </div>
+
+      <div class="valve-line">
+        <i data-lucide="droplet" class="valve-icon" id="icon-valve2"></i>
+        <p>Válvula 2</p>
+      </div>
+
+      <div class="tank-card">
+        <div class="tank" id="tank3">
+          <div class="liquid" id="liquid3"></div>
+        </div>
+        <p class="label">Tanque Receptor</p>
+      </div>
+    </section>
+
+    <!-- Controles -->
+    <section class="controls">
+      <button id="btn-valve1">Abrir Válvula 1</button>
+      <button id="btn-valve2">Abrir Válvula 2</button>
+      <button id="btn-auto">Ativar Automático</button>
+      <button id="btn-stop" class="danger">⛔ Parada de Emergência</button>
+    </section>
+
+    <!-- Status -->
+    <section class="status">
+      <span id="status-message">🔄 Sistema em espera...</span>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>

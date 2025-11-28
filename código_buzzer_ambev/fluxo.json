@@ -1,0 +1,84 @@
+// Node-RED → Menu → Import → Cole o JSON abaixo → Import :> apague esse comentário
+[
+    {
+        "id": "f0b422e.7c287e",
+        "type": "mqtt in",
+        "z": "flow1",
+        "name": "IA → Alerta (SodaVision)",
+        "topic": "bitdoglab/alerta",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "mqtt_broker",
+        "nl": false,
+        "rap": false,
+        "rh": 0,
+        "x": 180,
+        "y": 120,
+        "wires": [
+            [
+                "d259efa3.7f8cf"
+            ]
+        ]
+    },
+    {
+        "id": "d259efa3.7f8cf",
+        "type": "function",
+        "z": "flow1",
+        "name": "Extrair alerta → true/false",
+        "func": "// O payload vem como JSON do tipo\n// { \"alerta\": true }\n// Convertendo para string simples\n\nif (msg.payload.alerta === true) {\n    msg.payload = \"true\";\n} else {\n    msg.payload = \"false\";\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 120,
+        "wires": [
+            [
+                "7ca85365.16f4fc"
+            ]
+        ]
+    },
+    {
+        "id": "7ca85365.16f4fc",
+        "type": "mqtt out",
+        "z": "flow1",
+        "name": "Enviar para BitDogLab",
+        "topic": "bitdoglab/alerta",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correlationData": "",
+        "messageType": "",
+        "broker": "mqtt_broker",
+        "x": 710,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "mqtt_broker",
+        "type": "mqtt-broker",
+        "name": "MeuBroker",
+        "broker": "192.168.1.150",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": ""
+    }
+]

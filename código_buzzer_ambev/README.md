@@ -1,66 +1,115 @@
-🚨 Guia de Configuração: Alarme Remoto BitDogLab + Node-RED
-Este guia explica como importar e configurar o sistema de alarme que utiliza comunicação serial via USB para disparar sinais sonoros em uma placa RP2040 (BitDogLab).
+# 🚨 Guia de Configuração
 
-1. Pré-requisitos de Software
-Antes de importar o arquivo, certifique-se de ter instalado:
+## Alarme Remoto BitDogLab + Node-RED
 
-Node.js (Versão LTS recomendada).
+Este guia explica como **importar e configurar** o sistema de alarme que utiliza **comunicação serial via USB** para disparar sinais sonoros em uma placa **RP2040 (BitDogLab)**.
 
-Node-RED instalado globalmente via npm.
+---
 
-Firmware na Placa: A BitDogLab deve estar carregada com o código C que reconhece os comandos "ON" e "OFF".
+## 🛠️ 1. Pré-requisitos de Software
 
-2. Como Importar o Fluxo (JSON)
-Abra o Node-RED no seu navegador (geralmente em http://localhost:1880).
+Antes de iniciar, certifique-se de que o seu ambiente possui:
 
-No canto superior direito, clique no Menu (ícone de três linhas).
+* ✅ **Node.js** (versão LTS instalada)
+* ✅ **Node-RED** (instalado globalmente via npm)
+* ✅ **Firmware na placa BitDogLab**
 
-Selecione a opção Import.
+  * Código em C carregado
+  * Processamento de comandos via `scanf`
 
-Clique em select a file to import e selecione o arquivo .json recebido (ou cole o código JSON na caixa de texto).
+---
 
-Clique no botão vermelho Import.
+## 📥 2. Como Importar o Fluxo (JSON)
 
-3. Instalação de Dependências
-Se o fluxo aparecer com nós sinalizados com um triângulo vermelho ou "unknown", você precisa instalar o módulo de comunicação serial:
+1. Abra o Node-RED no navegador:
 
-Vá no Menu -> Manage palette.
+   ```
+   http://localhost:1880
+   ```
+2. Clique no **Menu** (ícone de três linhas no canto superior direito).
+3. Selecione **Import**.
+4. Clique em **select a file to import** ou cole o código JSON.
+5. Clique no botão vermelho **Import**.
 
-Clique na aba Install.
+---
 
-Procure por: node-red-node-serialport.
+## 🧩 3. Instalação de Dependências
 
-Clique em Install.
+Se aparecer um triângulo vermelho nos nós (`unknown`):
 
-4. Configuração da Conexão Serial
-Como a porta USB (COM) varia de um computador para outro, você deve ajustar a conexão:
+1. Vá em:
+   **Menu → Manage palette**
 
-Dê um clique duplo no nó de saída serial (geralmente nomeado como COM3 ou Serial Out).
+2. Clique na aba **Install**
 
-Clique no ícone do lápis para editar a configuração da porta.
+3. Pesquise por:
 
-Serial Port: Verifique no seu "Gerenciador de Dispositivos" (Windows) qual porta a placa assumiu e altere aqui.
+   ```
+   node-red-node-serialport
+   ```
 
-Baud Rate: Deve ser obrigatoriamente 115200.
+4. Clique em **Install**
 
-Aba Output: Certifique-se de que no campo "Add character to output messages" esteja preenchido com \n.
+---
 
-Clique em Update e depois em Done.
+## ⚙️ 4. Configuração da Conexão Serial
 
-5. Ativação e Teste
-Clique no botão vermelho Deploy no canto superior direito do Node-RED.
+A porta USB varia conforme o computador.
 
-Verifique se o status embaixo do nó serial mudou para um quadrado verde escrito "connected".
+### Passo a passo:
 
-Comandos:
+1. Dê **duplo clique** no nó de saída serial (ex: `COM3` ou `Serial Out`)
 
-Clique no botão azul do nó ON: A placa deve disparar o som nos GPIOs 21 e 0.
+2. Clique no **ícone do lápis** ✏️ para editar
 
-Clique no botão azul do nó OFF: O som deve parar imediatamente.
+3. Configure:
 
-Monitoramento: Observe a aba Debug (ícone da barata à direita) para ver as mensagens de confirmação enviadas pela placa.
+   * **Serial Port:** selecione a porta correta
+   * **Baud Rate:** `115200`
 
-6. Observações de Hardware
-Frequência: O alarme está configurado para 3000Hz.
+4. Vá até a aba **Output** e configure:
 
-Segurança: O alarme também pode ser desligado fisicamente pressionando os botões nos GPIOs 5 ou 6 da placa.
+   ```
+   Add character to output messages: \n
+   ```
+
+   (necessário para o `scanf` funcionar corretamente)
+
+5. Clique em **Update** → **Done**
+
+---
+
+## 🧪 5. Ativação e Testes de Comando
+
+1. Clique em **Deploy** (botão vermelho no canto superior direito)
+
+### Comandos disponíveis:
+
+| Botão   | Ação                                           |
+| ------- | ---------------------------------------------- |
+| **ON**  | Envia `"ON"` e ativa os buzzers (GPIO 21 e 0)  |
+| **OFF** | Envia `"OFF"` e desliga o alarme imediatamente |
+
+### Monitoramento
+
+* Utilize a aba **Debug** 🐞
+* Mensagens exibidas, por exemplo:
+
+```
+🔊 STATUS: ALARME LIGADO
+```
+
+---
+
+## ⚠️ 6. Especificações de Hardware
+
+Configurações utilizadas no firmware C:
+
+| Recurso        | Identificação | Detalhes                         |
+| -------------- | ------------- | -------------------------------- |
+| Buzzer A       | GPIO 21       | Ativado via PWM                  |
+| Buzzer B       | GPIO 0        | Ativado via PWM                  |
+| Botões físicos | GPIO 5 e 6    | Desligamento manual de segurança |
+| Frequência     | 3000 Hz       | Frequência de alerta do sistema  |
+
+---

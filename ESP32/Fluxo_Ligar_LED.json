@@ -1,0 +1,175 @@
+[
+    {
+        "id": "d7d6d2ee19c7bd27",
+        "type": "tab",
+        "label": "ESP32",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "3409c750dbe6632c",
+        "type": "inject",
+        "z": "d7d6d2ee19c7bd27",
+        "name": "Ligar LED",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "ON",
+        "payloadType": "str",
+        "x": 240,
+        "y": 140,
+        "wires": [
+            [
+                "2dc5b598029a273c"
+            ]
+        ]
+    },
+    {
+        "id": "2dc5b598029a273c",
+        "type": "mqtt out",
+        "z": "d7d6d2ee19c7bd27",
+        "name": "",
+        "topic": "esp32/led",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "46982f3321bd97c2",
+        "x": 480,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "9de8882fa7f4f955",
+        "type": "inject",
+        "z": "d7d6d2ee19c7bd27",
+        "name": "Desligar LED",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "OFF",
+        "payloadType": "str",
+        "x": 230,
+        "y": 200,
+        "wires": [
+            [
+                "2dc5b598029a273c"
+            ]
+        ]
+    },
+    {
+        "id": "607bb54ee6c1bd77",
+        "type": "mqtt in",
+        "z": "d7d6d2ee19c7bd27",
+        "name": "",
+        "topic": "esp32/status",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "46982f3321bd97c2",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 490,
+        "y": 280,
+        "wires": [
+            [
+                "a280f070342d5bd9"
+            ]
+        ]
+    },
+    {
+        "id": "a280f070342d5bd9",
+        "type": "debug",
+        "z": "d7d6d2ee19c7bd27",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 720,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "1777d4bcd69b3a77",
+        "type": "mqtt in",
+        "z": "d7d6d2ee19c7bd27",
+        "name": "",
+        "topic": "esp32/estado",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "46982f3321bd97c2",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 490,
+        "y": 360,
+        "wires": [
+            [
+                "a280f070342d5bd9"
+            ]
+        ]
+    },
+    {
+        "id": "46982f3321bd97c2",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "192.168.0.4",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    }
+]
